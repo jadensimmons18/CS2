@@ -8,6 +8,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.text.DecimalFormat;
+
 
 public class EustisSetup{
 
@@ -90,11 +92,11 @@ public class EustisSetup{
 
                 String[] parts = line.split(" ");
 
-                String title = parts[0];
+                String title = parts[0].replace("_", " ");
                 double budget = Double.parseDouble(parts[1]);
                 double gross = Double.parseDouble(parts[2]);
 
-                double roi = gross / budget;
+                double roi = (gross / budget);
 
                 totalMovies += 1;
                 totalRoi += roi;
@@ -121,7 +123,6 @@ public class EustisSetup{
                 }
 
                 System.out.println("-----------------------------------");
-                System.out.println("Title: " + title);
                 System.out.println("Budget: " + budget);
                 System.out.println("Gross: " + gross);
                 System.out.printf("ROI: %.2f\n", roi);
@@ -129,8 +130,8 @@ public class EustisSetup{
             }
 
             System.out.println("Movies loaded: " + totalMovies);
-            System.out.println("Average ROI: " + (totalRoi / totalMovies));
-            System.out.println("Top ROI: " + topMovieTitle + " (" + topRoi + ")");
+            System.out.printf("Average ROI: %.2f\n", totalRoi / totalMovies);
+            System.out.printf("Top ROI: " + topMovieTitle.replace("_", " ") + " (%.2f)\n", topRoi);
             System.out.println("Poor: " + poorCount + " | " + "Underperformer: " + underPerformerCount + " | " + "Break Even: " + breakEvenCount + " | " + "Hit: " + hitCount + " | " + "Blockbuster: " + blockBusterCount);
             scanner.close();
 
