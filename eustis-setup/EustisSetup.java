@@ -135,7 +135,6 @@ public class EustisSetup{
             System.out.println("Poor: " + poorCount + " | " + "Underperformer: " + underPerformerCount + " | " + "Break Even: " + breakEvenCount + " | " + "Hit: " + hitCount + " | " + "Blockbuster: " + blockBusterCount);
             scanner.close();
 
-
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
