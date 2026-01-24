@@ -37,7 +37,6 @@ public class EustisSetup{
         else{
             this.level = level;
         }
-        
         if (offensive_power < 0){
             this.offensive_power = 0;
         }
@@ -67,6 +66,12 @@ public class EustisSetup{
 
         return totalPoints;
     }
+
+    private String formatMoney(double value) {
+        DecimalFormat df = new DecimalFormat("#0.0#");
+        return df.format(value);
+    }
+
 
     public void category(){
 
@@ -123,8 +128,9 @@ public class EustisSetup{
                 }
 
                 System.out.println("-----------------------------------");
-                System.out.println("Budget: " + budget);
-                System.out.println("Gross: " + gross);
+                System.out.println("Title: " + title);
+                System.out.println("Budget: " + formatMoney(budget));
+                System.out.println("Gross: " + formatMoney(gross));
                 System.out.printf("ROI: %.2f\n", roi);
                 System.out.println("-----------------------------------");
             }
